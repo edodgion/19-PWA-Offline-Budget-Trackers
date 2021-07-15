@@ -70,7 +70,8 @@ self.addEventListener("fetch", (event) => {
     );
 
       return
-  }
+  };
+  
   event.respondWith(
       fetch(event.request).catch(() => {
           return caches.match(event.request).then(response => {
