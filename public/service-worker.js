@@ -11,7 +11,7 @@
   ];
 
 const PRE_CACHE = 'precache-v1';
-const RUNTIME_CACHE = 'runtime';
+const DATA_CACHE = "data-cache";
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
@@ -24,7 +24,7 @@ self.addEventListener("install", (event) => {
   
   // The activate handler takes care of cleaning up old caches.
   self.addEventListener("activate", (event) => {
-    const currentCaches = [PRE_CACHE, RUNTIME_CACHE];
+    const currentCaches = [PRE_CACHE, DATA_CACHE];
     event.waitUntil(
       caches
         .keys()
@@ -46,11 +46,11 @@ self.addEventListener("install", (event) => {
   });
   
   self.addEventListener("fetch", (event) => {
-    // handle runtime GET requests for data from /api routes
-    if (event.request.url.includes("/api")) {
+    // handle date-cache GET requests for data from /api routes
+    if (event.request.url.includes("/api/")) {
       // make network request and fallback to cache if network request fails (offline)
       event.respondWith(
-        caches.open(RUNTIME_CACHE).then((cachedResponse) => {
+        caches.open(DATA_CACHE).then((cachedResponse) => {
           return fetch(event.request)
             .then((response) => {
             if (response.status === 200) {
