@@ -68,7 +68,7 @@ self.addEventListener("install", event => {
               return response;
             })
             .catch(err => {
-              return cache.match(eventt.request);
+              return cache.match(event.request);
             });
         }).catch(err => console.log(err))
       );
@@ -77,7 +77,7 @@ self.addEventListener("install", event => {
     }
     // use cache first for all other requests for performance
     event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
+      caches.match(event.request).then(response => {
         return response || fetch(event.request);
         
     })
