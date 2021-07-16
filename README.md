@@ -1,71 +1,70 @@
-# Unit 19: Web Performance
+# Unit 19 PWA Homework: Online/Offline Budget Trackers
 
-## Overview
+Add functionality to our existing Budget Tracker application to allow for offline access and functionality.
 
-In this unit we will cover measuring and optimizing the performance of web applications. Today many users around the world access the web from older mobile devices on slower connections. As web applications continue to grow both in size and complexity, so do their load times. In order to ensure all users have a good experience, optimizing performance is an important consideration.
+The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
 
-Chrome Devtools and Google Lighthouse will be our primary tools for measuring web application performance. Devtools allows us to monitor network traffic and inspect the size of resources downloaded to the browser such as HTML, CSS, JavaScript and images. Lighthouse provides a performance scoring system based on metrics such as application bundle size, time to interaction, time to first meaningful paint, and more.
+Offline Functionality:
 
-In order to deliver smaller application bundle sizes to the client, we'll perform several optimizations that involve compressing assets. This includes minifying JavaScript and CSS files, as well as compressing images. Another technique utilized to improve initial bundle size will be lazy loading, where we will defer loading certain assets until they're needed by the application.
+  * Enter deposits offline
 
-This unit will also focus on Progressive Web Apps (PWAs). Progressive web apps aim to blend the benefits of a traditional browser experience with those of a mobile application. PWAs may utilize the Service Worker and Cache APIs to cache assets and API responses to ensure applications work without an internet connection.
+  * Enter expenses offline
 
-We'll conclude this unit with an overview of webpack, a module bundler for JavaScript. Webpack eases the development of front end web applications by automating many of the optimizations performed earlier in the unit.
+When brought back online:
 
-## Key Topics
+  * Offline entries should be added to tracker.
 
-* Lighthouse
+## User Story
+AS AN avid traveller
+I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
+SO THAT my account balance is accurate when I am traveling
 
-* Lazy Loading
+## Business Context
 
-* Minification
+Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
 
-* Compression
 
-* PWAs
+## Acceptance Criteria
+GIVEN a user is on Budget App without an internet connection
+WHEN the user inputs a withdrawal or deposit
+THEN that will be shown on the page, and added to their transaction history when their connection is back online.
 
-* Service Workers
+- - -
 
-* Webpack
+## Commit Early and Often
 
-## Comprehension Check
+* One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
 
-You will be employer-ready if you can answer the following questions:
+1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
 
-1. What tools can be used to measure performance of a web application?
+2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
 
-2. What are some metrics that matter when measuring web application performance?
+* Follow these guidelines for committing:
 
-3. What is a PWA?
+  * Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
 
-## Learning Objectives
+  * Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
 
-You will be employer-competitive if you are able to:
+  * Don't commit half done work, for the sake of your collaborators (and your future self!)
 
-* Identify performance bottlenecks in web applications.
+  * Test your application before you commit to ensure functionality at every step in the development process
 
-* Explain how performance can be measured in web applications.
+* We would like you to have well over 200 commits by graduation, so commit early and often!
 
-* Explain the 5 main categories measured in a Lighthouse audit.
+* Deploy your application with [Heroku and MongoDB Atlas.](../04-Important/MongoAtlas-Deploy.md)
 
-* Optimize CSS, JS, and media assets for performance.
+## Submission on BCS
 
-* Set up webpack in a new front end project.
+* You are required to submit the following:
 
-* Convert an existing web application to a PWA and add offline functionality.
+  * the URL to the deployed application
 
-## Homework: Budget Tracker
+  * the URL to the Github repository
 
-* In this assignment, you'll build a budgeting app to keep track of personal finances. You'll utilize IndexedDB, cache API, and Service Workers to provide an offline experience for the application.
+- - -
 
-## Helpful Links
+## Hint
 
-* [Why Performance Matters](https://developers.google.com/web/fundamentals/performance/why-performance-matters/)
+* In order to cache dynamic content, i.e. users' inputs for withdrawals or deposits, incorporate `indexedDB` from the previous module.
 
-* [Measure Web Performance With The RAIL Model](https://developers.google.com/web/fundamentals/performance/rail)
-
-* [Audit the Performance of Your Web Application](https://developers.google.com/web/fundamentals/performance/audit/)
-
-* [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/)
-
-* [Your First Progressive Web App](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/)
+* Use [Google](https://www.google.com) or another search engine to research this topic.

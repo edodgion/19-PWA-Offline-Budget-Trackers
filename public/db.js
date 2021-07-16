@@ -71,7 +71,7 @@ request.onsuccess = function (e) {
   db = e.target.result;
 
   // Check if app is online before reading from db
-  if (navigator.onLine) {
+  if (navigator.online) {
     console.log('Backend online! 🗄️');
     checkDatabase();
   }
