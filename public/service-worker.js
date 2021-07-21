@@ -3,6 +3,7 @@ const DATA_CACHE_NAME = "data-cache-v1";
 
 const FILES_TO_CACHE = [
   "/",
+  "/index.html",
   "/indexedDb.js",
   "/index.js",
   "/manifest.webmanifest",
@@ -23,22 +24,22 @@ self.skipWaiting();
 
 
 // The activate handler takes care of cleaning up old caches.
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keyList) => {
-        return Promise.all(
-          keyList.map((key) => { 
-            if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
-              console.log("Removing old cache data", key);
-              return caches.delete(key);
-            }
-          })
-        );
-      })
-    );
+// self.addEventListener("activate", (event) => {
+//   event.waitUntil(
+//     caches.keys().then((keyList) => {
+//         return Promise.all(
+//           keyList.map((key) => { 
+//             if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
+//               console.log("Removing old cache data", key);
+//               return caches.delete(key);
+//             }
+//           })
+//         );
+//       })
+//     );
     
-    self.clients.claim()
-});
+//     self.clients.claim()
+// });
 
 self.addEventListener("fetch", function(event) {
   // cache successful requests to the API
@@ -69,10 +70,15 @@ self.addEventListener("fetch", function(event) {
   // if the request is not for the API, serve static assets using "offline-first" approach.
   // see https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#cache-falling-back-to-network
   event.respondWith(
-    caches.open(CACHE_NAME).then((cache) => {
+    fetch(event.request).catch(function (){
       return cache.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    });
+    //  return response || fetch(event.request);
+    if (response){
+      return response 
+    } else if (events.request.headers.get('accept').includes('text/html')){
+return catches.match('/')
+    }
+    })
     })
   );
 });
