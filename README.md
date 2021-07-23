@@ -37,10 +37,9 @@ Packages include:
 - https://greve-baguette-43046.herokuapp.com/
 
 
-# Screen Shots
-![](images/)
-![](images/)
-![](images/)
+# Screen Shot
+![](images/budget.jpg)
+
  
 
 # Credit
