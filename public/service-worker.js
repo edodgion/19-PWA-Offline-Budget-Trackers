@@ -69,12 +69,12 @@ self.addEventListener("fetch", function (event) {
   // see https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#cache-falling-back-to-network
   event.respondWith(
     fetch(event.request).catch(function () {
-      return cache.match(event.request).then((response) => {
+      return caches.match(event.request).then((response) => {
         //  return response || fetch(event.request);
         if (response) {
           return response;
         } else if (events.request.headers.get("accept").includes("text/html")) {
-          return catches.match("/");
+          return caches.match("/");
         }
       });
     })
