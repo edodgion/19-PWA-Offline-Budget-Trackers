@@ -2,7 +2,12 @@
 
 ## Summary
 
-As an avid traveller I want to be able to track my withdrawals and deposits with or without a data/internet connection so that my account balance is accurate when I am traveling
+Added functionality to an existing Budget Tracker application that allows for offline access and functionality.
+
+The user is able to add expenses and deposits to the budget with or without a connection. When entering transactions offline, populating the total when brought back online.
+
+
+As an avid traveller I want to be able to track my withdrawals and deposits with or without a data/internet connection so that my account balance is accurate when I am traveling.
 
 
 # Table of Contents
